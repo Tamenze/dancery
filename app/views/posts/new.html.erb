@@ -1,0 +1,6 @@
+<%= form_for @post do |f| %>
+  <%=f.label :body %>
+  <%=f.text_area :body, :size => "60%x5%" %>
+  <%=f.submit :create %>
+<% end %>
+

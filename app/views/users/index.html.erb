@@ -1,0 +1,14 @@
+<%=link_to "View All Posts", posts_path%>
+<%= link_to 'Log Out', logout_path, method: :delete%>
+<%= link_to "Make New Post", new_post_path%>
+
+
+<div id="user_show">
+<% @users.each do |u| %>
+	<p><strong>Username:</strong> <a href="/users/<%= u.id %>" id="nodec"><%= u.username %> </a></p>
+	<p><strong>Email:</strong>  <%= u.email %></p>
+	<hr>
+	<% end %>
+</div>
+
+

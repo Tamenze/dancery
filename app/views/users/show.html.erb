@@ -1,0 +1,15 @@
+<%=link_to "Edit User Info", edit_user_path(@user.id) %>
+<%=link_to "View All Posts", posts_path%>
+<%=link_to "View All Users", users_path%>
+<%= link_to 'Log Out', logout_path, method: :delete%>
+
+
+<h1> Show User Page</h1>
+
+<strong>Username: </strong>
+<%= @user.username %> <br>
+<strong>Email: </strong>
+<%= @user.email %> <br>
+
+
+

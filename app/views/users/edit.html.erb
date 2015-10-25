@@ -1,0 +1,12 @@
+<%= form_for @user do |form| %>
+	<%=form.label :email %>
+	<%=form.text_field :email %>
+	<%=form.label :username %>
+	<%=form.text_field :username %>
+	<%=form.label :password %>
+	<%=form.text_field :password %>
+	<%=form.submit :edit %> 
+<% end %>
+
+<!-- why can't line 6 submit straight to the update action in the users controller? why does it have to go through edit, and how does that link to the update action?
+	rails user/id/edit automatically goes to the user controller action update (as you cann see in rails/info/routes)-->

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lady</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+ <% if flash[:notice] %>
+
+     	<h1 class="flash-notice">
+     		<%= flash[:notice] %>
+   	 	</h1>
+	<% end %>
+<% if flash[:alert] %>
+		<h1 class="flash-alert">
+		    <%= flash[:alert] %>
+		</h1>
+<% end %>
+<nav>
+
+
+
+<!-- if user is logged in, they see all the links except the log-in one 
+  if they are not logged in, they see all links except the log-out
+logged-in content: all links but log-in
+logged-out content -->
+
+
+
+
+
+</nav>
+
+<%= yield %>
+
+
+</body>
+</html>

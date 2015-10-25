@@ -1,0 +1,10 @@
+#user_show{
+	background-color: blue;
+	width: 20%;
+	height: 20%;
+}
+
+#nodec:link, #nodec:visited, #nodec:active{
+	text-decoration: none;
+	color: black;
+}
