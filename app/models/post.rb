@@ -4,4 +4,10 @@ class Post < ActiveRecord::Base
 
 	belongs_to :user
 	has_many :comments
+
+	before_create :mixxy
+
+		def mixxy
+			self.body = body + ":-)"	
+		end
 end
