@@ -10,9 +10,21 @@ class PostsController < ApplicationController
 	end
 
 	def create
-		@post = Post.create({ body: params[:post][:body], user_id: session[:user_id]})
+		@post = Post.new(post_params)
 		# @user = User.find(session[:user_id])
+		# @user.posts << @post
+
+		@post.user_id = session[:user_id]
+		@post.save
+		# @post = Post.create({ body: params[:post][:body], user_id: session[:user_id]})
 			redirect_to posts_path #NECESSARY for response
+
+			# respond_to do |format|
+			# format.js
+			# format.html do 
+			# 	redirect_to posts_path
+			# end
+			# end
 	end
 
 	def new
@@ -26,7 +38,7 @@ class PostsController < ApplicationController
 
 	def show
 		if session[:user_id]
-			@post = Post.order(created_at: :desc).find params[:id]
+			@post = Post.find params[:id]
 			# @post = Post.all
 			# @comments = Post.all.comments
 		else
@@ -47,5 +59,9 @@ class PostsController < ApplicationController
 		@post.destroy
 		redirect_to posts_path
 	end
-
+	
+	private
+	def post_params
+		params.require(:post).permit(:body, :user_id, :milktar)
+	end
 end

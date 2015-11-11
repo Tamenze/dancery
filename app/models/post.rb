@@ -5,9 +5,17 @@ class Post < ActiveRecord::Base
 	belongs_to :user
 	has_many :comments
 
-	before_create :mixxy
+	# before_create :mixxy
 
-		def mixxy
-			self.body = body + ":-)"	
-		end
+	# 	def mixxy
+	# 		self.body = body + ":-)"	
+	# 	end
+
+	has_attached_file :milktar, styles:
+	{ medium: "300x300>", thumb: "100x100>" }
+	# ,default_url: "/images/:style/missing.png"
+	
+	validates_attachment_content_type :milktar,
+	content_type: /\Aimage\/.*\Z/
+
 end

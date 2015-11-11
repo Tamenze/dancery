@@ -7,9 +7,8 @@
   <%= csrf_meta_tags %>
   <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
-<body>
+<body class="<%= body_target %>"> <!-- this is a helper that i made-->
  <% if flash[:notice] %>
-
      	<h1 class="flash-notice">
      		<%= flash[:notice] %>
    	 	</h1>

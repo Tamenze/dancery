@@ -1,10 +1,12 @@
+<div id ="index_body">
 <%=link_to "View All Posts", posts_path%>
 <%= link_to 'Log Out', logout_path, method: :delete%>
 <%= link_to "Make New Post", new_post_path%>
 
 
-<div id="user_show">
-<% @users.each do |u| %>
+<div id="user_ind">
+<% @users.order(created_at: :desc).each do |u| %>
+	<%= image_tag u.avatar.url(:thumb) %>
 	<p><strong>Username:</strong> <a href="/users/<%= u.id %>" id="nodec"><%= u.username %> </a></p>
 	<p><strong>Email:</strong>  <%= u.email %></p>
 	<hr>
@@ -12,3 +14,4 @@
 </div>
 
 
+</div>

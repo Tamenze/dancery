@@ -23,7 +23,7 @@
 	<p><%= c.body %></p>
 	<p><strong>from: <%= c.user.username %></strong></p>
 	<p><%= c.created_at.strftime("at %I:%M%p on %m/%d/%Y") %></p>
-	<%= link_to "Delete", comment_path(c), method: :delete, data: {confirm: "Are you sure you want to delete this comment?"} %>
+	<%= link_to "Delete", comment_path(c), method: :delete, remote:true, data: {confirm: "Are you sure you want to delete this comment?"} %>
 	<hr>
 <% end %>
 

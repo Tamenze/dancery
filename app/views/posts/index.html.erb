@@ -1,18 +1,22 @@
+
+
+<div id="all_posts">
 <%= link_to 'Log Out', logout_path, method: :delete%>
 <%=link_to "View All Users", users_path%>
 <%= link_to "Make New Post", new_post_path%>
 
 <% @posts.order(created_at: :desc).each do |p| %>
-	
-	<% if p.user %>
- 	<h1><a href="/posts/<%= p.id %>" id="nodec"><%= p.user.username %></a></h1>
+	<br>
+ 	<% if p.user %>
+ 		<h1><a href="/posts/<%= p.id %>" id="nodec"><%= p.user.username %></a></h1>
  	<% end %>
+ 	<%= image_tag p.milktar.url(:thumb) if p.milktar.present?   %>
  	<p><%= p.body %></p>
- 	<p><%= reverse_text(p.body)%></p>
  	<p><%= distance_of_time_in_words(Time.now, p.created_at, include_hours: true)%> ago</p>
-
+	
  	<hr>
 	<% end %>
+</div>
 <!-- Site for a plug-in to try to make time more accurate, show 
 48 hours" instead of "2 days" http://clojurehackers.com/p/shripadk/dotiw -->
 	

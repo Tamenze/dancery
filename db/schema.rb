@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151015215735) do
+ActiveRecord::Schema.define(version: 20151102180018) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "body"
@@ -24,16 +24,25 @@ ActiveRecord::Schema.define(version: 20151015215735) do
   create_table "posts", force: :cascade do |t|
     t.string   "body"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.string   "milktar_file_name"
+    t.string   "milktar_content_type"
+    t.integer  "milktar_file_size"
+    t.datetime "milktar_updated_at"
   end
 
   create_table "users", force: :cascade do |t|
     t.string   "email"
     t.string   "username"
-    t.string   "password"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "password_hash"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.string   "password_salt"
   end
 
 end

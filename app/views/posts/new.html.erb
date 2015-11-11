@@ -1,6 +1,13 @@
-<%= form_for @post do |f| %>
+NEW POST
+
+<%= form_for @post,  :url => posts_path, :html => { :multipart => true } do |f| %>
   <%=f.label :body %>
   <%=f.text_area :body, :size => "60%x5%" %>
+  <%= f.file_field :milktar %>
   <%=f.submit :create %>
 <% end %>
 
+<hr>
+<div id="posty">
+
+</div>
