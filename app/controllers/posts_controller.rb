@@ -18,7 +18,7 @@ class PostsController < ApplicationController
 		@post.save
 		# @post = Post.create({ body: params[:post][:body], user_id: session[:user_id]})
 			redirect_to posts_path #NECESSARY for response
-
+		
 			# respond_to do |format|
 			# format.js
 			# format.html do 
