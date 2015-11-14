@@ -34,24 +34,26 @@ RSpec.describe User, :type => :model do
 
 	describe ".authenticate" do
 		context "if encrypt has run successfully" do
+			it "user.password_hash contains user's password & password_salt" do
+			expect(user.password_hash).to eq((BCrypt::Engine.hash_secret("pantspants",user.password_salt)))
+			end
+
 			it "returns user" do
-				user.password_hash == BCrypt::Engine.hash_secret("pantspants",user.password_salt)
-				expect(User.authenticate("pants@aol.com","pantspants")).to eq(user)
+			user #why do I need to call the user before the line below works? why doesn't it recognize the let on line 6 as the user i am referring to? 
+			expect(User.authenticate("pants@aol.com","pantspants")).to eq(user)
 			end
 		end
 
 		context "if encrypt has FAILED" do
 			it "does not return user" do
-				# user.password_hash == "bollocks"
-				create(:user, email: "dumb@aol.com", password: "not swag", password_confirmation: "not swag")
-				expect(User.authenticate("dumb@aol.com","swag")).to eq(nil)
+			create(:user, email: "dumb@aol.com", password: "not swag", password_confirmation: "not swag")
+			expect(User.authenticate("dumb@aol.com","swag")).to eq(nil)
 			end
 
 		end
 	end
 
 
-	# end
 
 end
 
